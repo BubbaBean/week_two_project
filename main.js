@@ -5,7 +5,6 @@
 // console.log(data);
 
 
-
 // 1: Show me how to calculate the average price of all items.
 function question1() {
   // Answer:
@@ -24,7 +23,7 @@ function question2() {
 
   for (let i = 0; i < data.length; i++) {
     if ((data[i].price > 14.00) && (data[i].price < 18.00)) {
-      cheapItems.push(data[i].price)
+      cheapItems.push(data[i].title)
     }
   }
 console.log(cheapItems)
@@ -39,27 +38,50 @@ function question3 () {
 
 for (let i = 0; i < data.length; i++){
   if (data[i].currency_code === "GBP"){
+    // gbpItems.push(data[i].title);
   console.log(data[i].title, data[i].price);
 }
 }
+// console.log(gbpItems);
 };
 
 
 // 4: Display a list of all items who are made of wood.
-function question4 () {
-  // Answer:
-}
 
+function question4() {
+  // Answer:
+
+  let woodItems = [];
+
+  for (let i = 0; i < data.length; i++)
+    if (data[i].materials.includes("wood")) {
+      woodItems.push(data[i].title);
+  }
+  console.log(woodItems);
+};
 
 // 5: Which items are made of eight or more materials?
 //    Display the name, number of items and the items it is made of.
-function question5 () {
-  // Answer:
-}
 
+function question5() {
+  // Answer:
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].materials.length >= 8) {
+      console.log(data[i].title, data[i].materials.length, data[i].materials);
+    }
+  }
+};
 
 // 6: How many items were made by their sellers?
 // Answer:
 function question6 () {
   // Answer:
+let sellerItems = [];
+
+for (i = 0; i<data.length; i++){
+  if (data[i].who_made === "i_did"){
+    sellerItems.push(data[i].title)
+  }
+}
+console.log(sellerItems,sellerItems.length);
 }
